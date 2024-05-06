@@ -1,0 +1,8 @@
+<h2>Product List</h2>
+<ul>
+  <li (click)="selectedProduct = 'Product1'">Product1</li>
+  <li (click)="selectedProduct = 'Product2'">Product2</li>
+  <li (click)="selectedProduct = 'Product3'">Product3</li>
+</ul>
+
+<app-product-detail #product [name]="selectedProduct" (bought)="onBuy($event)" ></app-product-detail>

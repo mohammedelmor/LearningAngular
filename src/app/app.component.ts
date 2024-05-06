@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'LearningAngular';
+
+  onClick() {
+    console.info('Button is clicked!!');
+  }
 }
