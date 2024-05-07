@@ -1,8 +1,17 @@
 <h2>Product List</h2>
+
+Today: {{ today| date:'fullDate' }}
+
 <ul>
-  <li (click)="selectedProduct = 'Product1'">Product1</li>
-  <li (click)="selectedProduct = 'Product2'">Product2</li>
-  <li (click)="selectedProduct = 'Product3'">Product3</li>
+  <li *ngFor="let product of products | slice:3 |sort; let i = index" (click)="selectedProduct=product">
+    {{ i + 1 }}. {{ product?.name | uppercase }} - <span> {{ product.price | currency }} </span>
+    <p>{{product | json}}</p>
+  </li>
 </ul>
 
-<app-product-detail #product [name]="selectedProduct" (bought)="onBuy($event)" ></app-product-detail>
+<app-product-detail *ngIf="selectedProduct; else noProduct"
+                    [product]="selectedProduct"
+                    (bought)="onBuy($event)"></app-product-detail>
+<ng-template #noProduct>
+  <p>No products selected</p>
+</ng-template>

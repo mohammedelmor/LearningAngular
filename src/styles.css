@@ -6,7 +6,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-div  {
+div {
   padding: 0 16px;
 }
 
@@ -41,4 +41,13 @@ li {
 .button:hover, button:hover {
   opacity: 0.8;
   font-weight: normal;
+}
+
+
+.valid {
+  border: solid green;
+}
+
+.invalid {
+  border: solid red
 }
