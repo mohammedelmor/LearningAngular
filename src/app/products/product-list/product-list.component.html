@@ -3,9 +3,8 @@
 Today: {{ today| date:'fullDate' }}
 
 <ul>
-  <li *ngFor="let product of products | slice:3 |sort; let i = index" (click)="selectedProduct=product">
-    {{ i + 1 }}. {{ product?.name | uppercase }} - <span> {{ product.price | currency }} </span>
-    <p>{{product | json}}</p>
+  <li *ngFor="let product of products; let i = index" (click)="selectedProduct=product">
+    <app-product-view [id]="i"></app-product-view>
   </li>
 </ul>
 
@@ -15,3 +14,5 @@ Today: {{ today| date:'fullDate' }}
 <ng-template #noProduct>
   <p>No products selected</p>
 </ng-template>
+<h2>Favorites</h2>
+<app-favorites> </app-favorites>
